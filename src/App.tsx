@@ -38,7 +38,7 @@ function App() {
           )}
         </section>
 
-        <section id="posiciones" className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-15 mb-section-gap items-start">
+        <section id="posiciones" className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] xl:grid-cols-[1.3fr_1fr] gap-7 md:gap-15 mb-section-gap items-start">
           <FeatureCard className="order-2 lg:order-1 transition-transform hover:-translate-y-1 duration-300">
             <h2 className="text-[26px] mb-6 text-signal-red uppercase">Últimos Resultados</h2>
             <div className="flex flex-col gap-4">
