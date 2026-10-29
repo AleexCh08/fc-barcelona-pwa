@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,350;12..96,600;12..96,800&family=Inter:wght@400&family=JetBrains+Mono:wght@400&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 @layer base {
   html {
@@ -20,11 +19,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-signal-red text-summit-white font-body text-[14px] rounded-pill px-[20px] py-[10px] shadow-cta transition-colors;
+    @apply bg-signal-red text-summit-white font-body text-[14px] rounded-pill px-5 py-2.5 shadow-cta transition-colors;
   }
   
   .btn-secondary {
-    @apply bg-transparent text-carbon-ink border border-carbon-ink font-body text-[14px] rounded-nav px-[20px] py-[10px] transition-colors hover:bg-glacier-mist;
+    @apply bg-transparent text-carbon-ink border border-carbon-ink font-body text-[14px] rounded-nav px-5 py-2.5 transition-colors hover:bg-glacier-mist;
   }
   
   .section-label {
@@ -36,7 +35,7 @@
   }
   
   .input-field {
-    @apply bg-summit-white border border-ridge-gray rounded-nav font-body text-[16px] px-[15px] py-[10px] focus:outline-none focus:border-carbon-ink placeholder:text-ridge-gray;
+    @apply bg-summit-white border border-ridge-gray rounded-nav font-body text-[16px] px-3.75 py-2.5 focus:outline-none focus:border-carbon-ink placeholder:text-ridge-gray;
   }
   
   .layout-container {

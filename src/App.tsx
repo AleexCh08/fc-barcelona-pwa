@@ -10,14 +10,14 @@ function App() {
   const { data: standings, isLoading: loadingStandings } = useStandings();
 
   return (
-    <div className="min-h-screen bg-summit-white pt-[80px]">
+    <div className="min-h-screen bg-summit-white pt-20">
       <NavigationBar />
       
       <main className="layout-container py-section-gap">
         <section className="mb-section-gap">
           <h1 className="mb-8 uppercase">Próximo<br/>Partido</h1>
           {loadingNext ? (
-            <div className="h-[150px] flex items-center justify-center border border-carbon-ink rounded-card">
+            <div className="h-37.5 flex items-center justify-center border border-carbon-ink rounded-card">
               <span className="font-mono text-ridge-gray text-[14px]">SINCRONIZANDO DATOS...</span>
             </div>
           ) : nextMatch ? (
@@ -27,7 +27,7 @@ function App() {
           )}
         </section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-[60px] mb-section-gap items-start">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-15 mb-section-gap items-start">
           <FeatureCard>
             <h2 className="text-[26px] mb-6 text-signal-red uppercase">Últimos Resultados</h2>
             <div className="flex flex-col gap-4">
