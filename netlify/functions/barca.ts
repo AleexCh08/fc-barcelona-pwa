@@ -1,7 +1,7 @@
-import { Handler } from '@netlify/functions';
+import type { Handler } from '@netlify/functions';
 
 export const handler: Handler = async (event) => {
-  const { action } = event.queryStringParameters || {};
+  const { action, comp } = event.queryStringParameters || {};
   const apiKey = process.env.FOOTBALL_DATA_API_KEY;
 
   if (!apiKey) {
@@ -9,12 +9,14 @@ export const handler: Handler = async (event) => {
   }
 
   let url = '';
-  if (action === 'next_match') {
-    url = 'https://api.football-data.org/v4/teams/81/matches?status=SCHEDULED&limit=1';
+  const competitionCode = comp === 'CL' ? 'CL' : 'PD';
+
+  if (action === 'upcoming_matches') {
+    url = 'https://api.football-data.org/v4/teams/81/matches?status=SCHEDULED&limit=5';
   } else if (action === 'last_matches') {
     url = 'https://api.football-data.org/v4/teams/81/matches?status=FINISHED&limit=5';
   } else if (action === 'standings') {
-    url = 'https://api.football-data.org/v4/competitions/PD/standings';
+    url = `https://api.football-data.org/v4/competitions/${competitionCode}/standings`;
   } else {
     return { statusCode: 400, body: JSON.stringify({ error: 'Acción no reconocida' }) };
   }

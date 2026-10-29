@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { getNextMatch, getLastMatches, getStandings } from '../services/api';
+import { getUpcomingMatches, getLastMatches, getStandings } from '../services/api';
 
-export const useNextMatch = () => useQuery({
-  queryKey: ['nextMatch'],
-  queryFn: getNextMatch
+export const useUpcomingMatches = () => useQuery({
+  queryKey: ['upcomingMatches'],
+  queryFn: getUpcomingMatches
 });
 
 export const useLastMatches = () => useQuery({
@@ -11,7 +11,7 @@ export const useLastMatches = () => useQuery({
   queryFn: getLastMatches
 });
 
-export const useStandings = () => useQuery({
-  queryKey: ['standings'],
-  queryFn: getStandings
+export const useStandings = (comp: 'PD' | 'CL') => useQuery({
+  queryKey: ['standings', comp],
+  queryFn: () => getStandings(comp)
 });

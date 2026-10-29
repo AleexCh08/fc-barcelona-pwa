@@ -4,14 +4,15 @@ import { SectionLabel } from '../ui/SectionLabel';
 
 interface StandingsTableProps {
   standings: Standing[];
+  competitionName: string;
 }
 
-export const StandingsTable: React.FC<StandingsTableProps> = ({ standings }) => {
-  const topStandings = standings.slice(0, 6);
+export const StandingsTable: React.FC<StandingsTableProps> = ({ standings, competitionName }) => {
+  const topStandings = standings.slice(0, 8);
 
   return (
     <div className="w-full">
-      <SectionLabel text="LALIGA - TOP 6" />
+      <SectionLabel text={competitionName} />
       <div className="mt-4 border-t border-carbon-ink">
         {topStandings.map((row) => (
           <div key={row.team.id} className="flex items-center py-4 border-b border-carbon-ink/20">
